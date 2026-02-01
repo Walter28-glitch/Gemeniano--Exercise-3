@@ -20,14 +20,14 @@ const App = () => {
   const [activeTab, setActiveTab] = useState('preview');
   const [questions, setQuestions] = useState(initialQuestions);
   const [timerEnabled, setTimerEnabled] = useState(false);
-  const [timerDuration, setTimerDuration] = useState(600); // 10 minutes in seconds
+  const [timerDuration, setTimerDuration] = useState(600); 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [highestScore, setHighestScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timerDuration);
   const [isTimerActive, setIsTimerActive] = useState(false);
-  const [quizStarted, setQuizStarted] = useState(false); // New state for home screen
+  const [quizStarted, setQuizStarted] = useState(false); 
   
   
   const [showQuestionModal, setShowQuestionModal] = useState(false);
@@ -127,7 +127,7 @@ const App = () => {
     }
     setQuizCompleted(true);
     setIsTimerActive(false);
-    setQuizStarted(false); // Go back to home screen after completion
+    setQuizStarted(false); 
   };
 
   
@@ -218,7 +218,7 @@ const App = () => {
         q.id === editingQuestion.id ? updatedQuestion : q
       ));
     } else {
-      // Add new question
+     
       const newId = Math.max(...questions.map(q => q.id), 0) + 1;
       setQuestions([...questions, { ...updatedQuestion, id: newId }]);
     }
@@ -560,7 +560,7 @@ const App = () => {
         }}
         keyExtractor={(item) => item}
         contentContainerStyle={styles.settingsContainer}
-        ListFooterComponent={<View style={{ height: 20 }} />} // Add padding at bottom
+        ListFooterComponent={<View style={{ height: 20 }} />}
       />
     );
   };
@@ -707,7 +707,7 @@ const App = () => {
           onPress={() => {
             setActiveTab('preview');
             if (activeTab === 'settings') {
-              // Reset timer when switching to preview
+              
               setTimeLeft(timerDuration);
             }
           }}
@@ -720,7 +720,7 @@ const App = () => {
           style={[styles.tab, activeTab === 'settings' && styles.activeTab]}
           onPress={() => {
             setActiveTab('settings');
-            // Don't reset quiz state when going to settings
+            
           }}
         >
           <Text style={[styles.tabText, activeTab === 'settings' && styles.activeTabText]}>
